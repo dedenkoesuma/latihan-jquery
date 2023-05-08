@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Poppins', sans-serif;
+}
+
+form {
+    width: 300px;
+    margin: 20vh auto 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+
+form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    background-color: rgb(41, 57, 194);
+    border: none;
+    border-radius: 4px;
+}
+
+form .eror{
+    padding: 5px;
+    color: red;
+    background: rgba(255, 0, 0, 0.1);
+    display: none;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="/" id="form" method="post">
+      <div class="input-control">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+        <div class="eror" id="eror_username">Masukan Username</div>
+      </div>
+      <div class="input-control">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+        <div class="eror" id="eror_password">Masukan Password</div>
+      </div>
+      <button type="reset" onclick="validation()" value="Reset">Login</button>
+    </form>
+</div>
+<script>
+    const form = document.getElementById('form');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const erorUsername = document.getElementById('eror_username');
+    const erorPassword = document.getElementById('eror_password');
+    
+    form.addEventListener('submit', e => {
+        validation();
+    });
+
+    const validation = () => {
+        if(username.value.length < 6){
+            username.style.border = "1px solid red";
+            erorUsername.style.display = "block";
+            username.focus();
+            return false;
+        }
+        if(password.value.length < 6){
+            password.style.border = "1px solid red";
+            erorPassword.style.display = "block";
+            password.focus();
+            return false;
+        }
+        else{
+            form.reset();
+        }
+    }
+</script>
+    <!-- <script>
+        $(document).ready(function(){
+            console.log('shap');
+        });
+    </script> -->
+</body>
+</html>

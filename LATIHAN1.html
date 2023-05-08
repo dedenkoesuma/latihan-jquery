@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <script src="js/jquery.js"></script>
+    <style>
+.traffic-light {
+  position: relative;
+  width: 100px;
+  height: 380px;
+  margin: 20px auto;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.light {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 20px;
+  left: 15px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px 5px rgba(255, 0, 0, 0.5);
+}
+
+.red {
+  background-color: gray;
+  z-index: 3;
+}
+
+.yellow {
+  background-color: gray;
+  position: absolute;
+  margin-top: 100px;
+  z-index: 2;
+}
+
+.green {
+  background-color: gray;
+  position: absolute;
+  margin-top: 200px;    
+  z-index: 1;
+}
+
+.switch {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 30px;
+  background-color: gray;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.off {
+  background-color: gray;
+}
+
+.on {
+  background-color: green;
+}
+
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="red light"></div>
+        <div class="yellow light"></div>
+        <div class="green light"></div>
+        <div class="switch off"></div>
+      </div>
+      
+      
+    <script>
+   $(document).ready(function() {
+    var clicks = 0;
+  $(".switch").click(function() {
+    // Mengubah status switch
+    $(this).toggleClass("on off");
+    clicks++;
+    
+    // Mengubah warna lampu
+    // if (clicks % 3 === 1) {
+    //   $('.red').css("background-color", "red");
+    // } else if (clicks % 3 === 2) {
+    //   $('.yellow').css("background-color", "yellow");
+    // } else if (clicks % 3 === 0) {
+    //   $('.green').css("background-color", "green");
+    // } else{
+    //   $('.light').css("background-color", "gray");
+    // }
+      switch(clicks % 3){
+          case 1 :
+          $(".red").css("background-color", "red");
+          break;
+          case 2 :
+          $(".yellow").css("background-color", "yellow");
+          break;
+          case 0 :
+          $(".green").css("background-color", "green");
+          break;
+          default:
+          $(".light").css("background-color", "gray");
+          break;
+      }
+    // if ($(this).hasClass("on")) {
+    //   $(".red").css("background-color", "red");
+    // } else {
+    //   $(".red, .yellow, .green").css("box-shadow", "");
+    // }
+  });
+});
+
+    </script>
+</body>
+</html>
