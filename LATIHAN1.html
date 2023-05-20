@@ -78,11 +78,31 @@
       
     <script>
    $(document).ready(function() {
-    var clicks = 0;
-  $(".switch").click(function() {
-    // Mengubah status switch
-    $(this).toggleClass("on off");
-    clicks++;
+      $(".red").click(function(){
+        $(this).css('background-color', 'red');
+        $('.green').css('background-color', 'gray');
+        $('.yellow').css('background-color', 'gray');
+      });
+      $(".yellow").click(function(){
+        $(this).css('background-color', 'yellow');
+        $('.red').css('background-color', 'gray');
+        $('.green').css('background-color', 'gray');
+      });
+      $(".green").click(function(){
+        $(this).css('background-color', 'green');
+        $('.red').css('background-color', 'gray');
+        $('.yellow').css('background-color', 'gray');
+        setTimeout(function(){
+          $('.yellow').css('background-color', 'yellow');
+        }, 3000);
+
+      });
+    //   var clicks = 0;
+  // $(".switch").click(function() {
+  //   // Mengubah status switch
+  //   $(this).toggleClass("on off");
+
+  //   clicks++;
     
     // Mengubah warna lampu
     // if (clicks % 3 === 1) {
@@ -94,26 +114,26 @@
     // } else{
     //   $('.light').css("background-color", "gray");
     // }
-      switch(clicks % 3){
-          case 1 :
-          $(".red").css("background-color", "red");
-          break;
-          case 2 :
-          $(".yellow").css("background-color", "yellow");
-          break;
-          case 0 :
-          $(".green").css("background-color", "green");
-          break;
-          default:
-          $(".light").css("background-color", "gray");
-          break;
-      }
+      // switch(clicks % 3){
+      //     case 1 :
+      //     $(".red").css("background-color", "red");
+      //     break;
+      //     case 2 :
+      //     $(".yellow").css("background-color", "yellow");
+      //     break;
+      //     case 0 :
+      //     $(".green").css("background-color", "green");
+      //     break;
+      //     default:
+      //     $(".light").css("background-color", "gray");
+      //     break;
+      // }
     // if ($(this).hasClass("on")) {
     //   $(".red").css("background-color", "red");
     // } else {
     //   $(".red, .yellow, .green").css("box-shadow", "");
     // }
-  });
+  // });
 });
 
     </script>
