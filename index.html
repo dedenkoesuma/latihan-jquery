@@ -111,7 +111,11 @@ form .eror{
             return false;
         }
         else{
-            form.reset();
+        username.style.border = "none";
+        password.style.border = "none";
+        erorUsername.style.display = "none";
+        erorPassword.style.display = "none";
+        return;
         }
     }
 </script>
